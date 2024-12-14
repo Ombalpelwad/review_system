@@ -1,0 +1,45 @@
+{% extends "admin/admin_base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>All Reviews</h2>
+    
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="stats-card">
+                <h5>Total Users</h5>
+                <h3>{{ total_users }}</h3>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stats-card">
+                <h5>Average Rating</h5>
+                <h3>{{ "%.1f"|format(avg_rating) }}/5.0</h3>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stats-card">
+                <h5>Total Reviews</h5>
+                <h3>{{ reviews|length }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews-list">
+        {% for review in reviews %}
+        <div class="review-card">
+            <div class="d-flex justify-content-between">
+                <h5>Rating: {{ review.rating }}/5</h5>
+                <small class="text-muted">{{ review.created_date.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <p>{{ review.comment }}</p>
+            <small class="text-muted">By: {{ review.author.username }}</small>
+        </div>
+        {% else %}
+        <div class="alert alert-info">
+            No reviews available yet.
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 

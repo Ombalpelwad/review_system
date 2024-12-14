@@ -1,0 +1,22 @@
+{% extends "admin/admin_base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Admin Dashboard</h1>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Reviews Management</h5>
+                            <p class="card-text">View and manage all user reviews.</p>
+                            <a href="{{ url_for('admin.view_all_reviews') }}" class="btn btn-primary">View Reviews</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

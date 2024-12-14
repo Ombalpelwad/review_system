@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Reviews</h2>
+        <div class="alert alert-info">
+            Average Rating: {{ "%.1f"|format(avg_rating) }} / 5.0
+        </div>
+        
+        {% for review in reviews %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-title">Rating: {{ review.rating }}/5</h5>
+                    <small class="text-muted">{{ review.created_date.strftime('%Y-%m-%d') }}</small>
+                </div>
+                <p class="card-text">{{ review.comment }}</p>
+                <small class="text-muted">By: {{ review.author.username }}</small>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning">
+            No reviews available yet.
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 
