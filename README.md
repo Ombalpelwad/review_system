@@ -60,7 +60,10 @@ When you run the `init_db.py` script, it checks if the admin user already exists
 ## Usage
 
 - Navigate to `http://127.0.0.1:5000` in your web browser to access the application.
+- Navigate to `http://127.0.0.1:5000/admin` in your web browser to access the admin page.
+- for admin use admin details for login.
 - Use the admin credentials provided above to log in to the admin dashboard.
+  
 
 ## License
 
